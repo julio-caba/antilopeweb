@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+App::setLocale('es');
+
 Route::get('/', function () {
     return view('welcome');
 });

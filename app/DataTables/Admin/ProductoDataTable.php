@@ -65,12 +65,14 @@ class ProductoDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'descripcion',
-            'costo',
-            'precio',
-            'cat_producto',
-            'stock'
+            'name'=> new \Yajra\DataTables\Html\Column(['title' => 'Nombre', 'data' => 'name', 'name' => 'name']),
+            'descripcion'=> new \Yajra\DataTables\Html\Column(['title' => 'Descripción', 'data' => 'descripcion', 'name' => 'descripcion']),
+            'codigo'=> new \Yajra\DataTables\Html\Column(['title' => 'Codigo', 'data' => 'codigo', 'name' => 'codigo']),
+            'costo'=> new \Yajra\DataTables\Html\Column(['title' => 'Costo de compra', 'data' => 'costo', 'name' => 'costo']),
+            'precio'=> new \Yajra\DataTables\Html\Column(['title' => 'Precio venta', 'data' => 'precio', 'name' => 'precio']),
+            'id_categoria'=> new \Yajra\DataTables\Html\Column(['title' => 'ID de categoria', 'data' => 'id_categoria', 'name' => 'id_categoria']),
+            'stock'=> new \Yajra\DataTables\Html\Column(['title' => 'Stock', 'data' => 'stock', 'name' => 'stock'])
+            
         ];
     }
 

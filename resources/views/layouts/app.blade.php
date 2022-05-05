@@ -38,7 +38,12 @@
 
     @stack('page_css')
 </head>
-
+<!-- agrego estilos para cambiar las visualizaciones -->
+<style>
+    #dataTableBuilder_length{
+        visibility: hidden;
+    }
+</style>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
     <!-- Main Header -->

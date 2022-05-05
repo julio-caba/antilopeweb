@@ -26,7 +26,8 @@
 <!-- id Categoria Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_categoria', 'ID de categoria:') !!}
-    {!! Form::number('id_categoria', null, ['class' => 'form-control','step'=>'any']) !!}
+    {!! Form::select('id_categoria',$categorias, null,  ['class' => 'form-control select2','data-placeholder'=>'Seleccionar...', 'data-allow-clear'=>'true']) !!}            
+  <!--   {!! Form::number('id_categoria', null, ['class' => 'form-control','step'=>'any']) !!} -->
 </div>
 <!-- Stock Field -->
 <div class="form-group col-sm-6">
@@ -37,6 +38,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('imagen', 'Imagen:') !!}
     <div>
-    {!! Form::file('imagen', null) !!}
+    @isset ($producto->imagen)   
+        <img src="{{asset($producto->imagen)}}" width="200">    
+    @endisset   
+    {!! Form::file('imagen', ['class' => 'form-control-file mt-1','accept' => 'image/*']) !!}
     </div>    
 </div>
