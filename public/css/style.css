@@ -46,8 +46,9 @@ body {
     z-index: 99;
     font-size: 18px;
     border: none;
+	/* border-color: #363332; */
     outline: none;
-    background-color: #FFA420;
+    background-color: #c97f15;
     color: white;
     cursor: pointer;
     padding: 10px;

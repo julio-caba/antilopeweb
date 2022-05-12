@@ -31,6 +31,9 @@
 <body>
     @include('layouts/common/head')
     @include('layouts/common/menu')
+    <button onclick="topFunction()" id="myBtn" title="ir a inicio">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
 <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -83,6 +86,8 @@
 			</div>
 		</div>
 	</div>
+    @include('layouts/common/footer')
+    @include('layouts/common/scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous"></script>
