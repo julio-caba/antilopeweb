@@ -23,12 +23,12 @@
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right" style="font-size:.8rem;">
                         @if(Auth::check())
-                        <a href="{{ url('/logout') }}"><i class="fa fa-lock mr-2"></i>{{ Auth::user()->name }} - salir</a>
+                        <a href="{{ url('/logout') }}"><i class="fa fa-lock mr-2"></i>{{ Auth::user()->name }} - salir</a>                        
                             @if(Auth::user()->admin)
-                                <a href="{{ route('home') }}"><i class="fa fa-home ml-2"></i> Home</a>
-                                @include('layouts/common/carrito') 
+                                <a href="{{ route('home') }}"><i class="fa fa-home ml-2"></i> Home</a>                         
                             @endif 
-                            @else
+                            @include('layouts/common/carrito') 
+                        @else
                             @if (Request::is('login'))  
                         <a href="{{ route('register') }}" class="pr-2">Registrarse</a>
                         @include('layouts/common/carrito')                                              
