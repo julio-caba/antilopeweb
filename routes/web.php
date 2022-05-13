@@ -45,3 +45,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('roles', App\Http\Controllers\Admin\roleController::class, ["as" => 'admin']);
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('usuarios', App\Http\Controllers\Admin\UsuarioController::class, ["as" => 'admin']);
+});

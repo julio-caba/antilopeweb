@@ -16,10 +16,12 @@
  @if(Auth::user()->superuser)
  <li class="nav-item mt-1 {{ Request::is('admin/roles*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('admin.roles.index') }}">
-        <i class="fas fa-address-book" style="text-align: center; margin-right: .4em; margin-left: .2em;"></i><p  align="right">Roles</p>
+        <i class="fas fa-sitemap" style="text-align: center; margin-right: .4em; margin-left: .2em;"></i><p  align="right">Roles</p>
     </a>
  </li>
  @endif
- 
-
-
+ <li class="nav-item mt-1 {{ Request::is('admin/usuarios*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('admin.usuarios.index') }}">
+        <i class="fas fa-id-card-alt" style="text-align: center; margin-right: .4em; margin-left: .2em;"></i><p  align="right">Usuarios</p>
+    </a>
+ </li>
