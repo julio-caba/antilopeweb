@@ -74,4 +74,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    protected function redirectTo()
+    {
+        if (auth()->user()->admin == 0) {
+            return '/';
+        }
+        return '/home';
+    }
+
 }
