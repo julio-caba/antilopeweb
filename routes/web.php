@@ -40,3 +40,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('productos', App\Http\Controllers\Admin\ProductoController::class, ["as" => 'admin']);
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('roles', App\Http\Controllers\Admin\roleController::class, ["as" => 'admin']);
+});
