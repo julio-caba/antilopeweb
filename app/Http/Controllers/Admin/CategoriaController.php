@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\UpdateCategoriaRequest;
 use App\Repositories\Admin\CategoriaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class CategoriaController extends AppBaseController
@@ -30,7 +31,8 @@ class CategoriaController extends AppBaseController
      */
     public function index(CategoriaDataTable $categoriaDataTable)
     {
-        return $categoriaDataTable->render('admin.categorias.index');
+        $categorias = DB::table('categorias')->select('id','name')->get();
+        return $categoriaDataTable->render('admin.categorias.index', compact('categorias'));
     }
 
     /**
@@ -71,14 +73,14 @@ class CategoriaController extends AppBaseController
     public function show($id)
     {
         $categoria = $this->categoriaRepository->find($id);
-
+        $categorias = $this->categoriaRepository->all();
         if (empty($categoria)) {
             Flash::error('Categoria not found');
 
             return redirect(route('admin.categorias.index'));
         }
 
-        return view('admin.categorias.show')->with('categoria', $categoria);
+        return view('admin.categorias.show', compact('categorias', 'categoria'));
     }
 
     /**
@@ -133,6 +135,11 @@ class CategoriaController extends AppBaseController
      *
      * @return Response
      */
+    public function welcomeIndex(){
+        $categorias = $this->categoriaRepository->all();
+        return view('welcome', compact('categorias'));
+      /*   return view('welcome', ['categorias' => $categorias]); */
+    }
     public function destroy($id)
     {
         $categoria = $this->categoriaRepository->find($id);

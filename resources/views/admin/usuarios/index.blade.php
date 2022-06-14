@@ -7,12 +7,12 @@
                 <div class="col-sm-6">
                     <h1>Usuarios</h1>
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('admin.usuarios.create') }}">
                         Add New
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -24,7 +24,7 @@
         <div class="clearfix"></div>
 
         <div class="card">
-            <div class="card-body p-0">
+            <div class="card-body">
                 @include('admin.usuarios.table')
 
                 <div class="card-footer clearfix">

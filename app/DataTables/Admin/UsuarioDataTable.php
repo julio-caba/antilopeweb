@@ -29,6 +29,7 @@ class UsuarioDataTable extends DataTable
      */
     public function query(Usuario $model)
     {
+     
         return $model->newQuery();
     }
 

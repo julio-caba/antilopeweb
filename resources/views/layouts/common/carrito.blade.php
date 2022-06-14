@@ -44,4 +44,4 @@
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
-                            </li>
+</li>

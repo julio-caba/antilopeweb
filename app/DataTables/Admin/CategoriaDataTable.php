@@ -44,16 +44,8 @@ class CategoriaDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-               /*  'dom'       => 'Bfrtip', */
                 'stateSave' => false,
-                'order'     => [[0, 'desc']],
-                /* 'buttons'   => [
-                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
-                ], */
+                'order'     => [[0, 'desc']],              
             ]);
     }
 
@@ -65,9 +57,10 @@ class CategoriaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'name',
-            'descripcion'
+            'id' => new \Yajra\DataTables\Html\Column(['title' => 'ID', 'data' => 'id', 'name' => 'id']),
+            'name' => new \Yajra\DataTables\Html\Column(['title' => 'Nombre', 'data' => 'name', 'name' => 'name']),
+            'descripcion' => new \Yajra\DataTables\Html\Column(['title' => 'Descripcion', 'data' => 'descripcion', 'name' => 'descripcion'])
+
         ];
     }
 

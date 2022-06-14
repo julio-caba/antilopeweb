@@ -1,9 +1,4 @@
 @extends('layouts.app')
-<!-- <style>
-    #dataTableBuilder_length{
-        visibility: hidden;
-    }
-</style> -->
 @section('content')
     <section class="content-header">
         <div class="container-fluid">

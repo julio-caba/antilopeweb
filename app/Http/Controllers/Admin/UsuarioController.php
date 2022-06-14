@@ -10,6 +10,7 @@ use App\Repositories\Admin\UsuarioRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends AppBaseController
 {

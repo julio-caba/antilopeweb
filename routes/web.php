@@ -35,7 +35,7 @@ Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class,'logout']
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('categorias', App\Http\Controllers\Admin\CategoriaController::class, ["as" => 'admin']);
 });
-
+Route::get('/', [App\Http\Controllers\Admin\CategoriaController::class, 'welcomeIndex']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('productos', App\Http\Controllers\Admin\ProductoController::class, ["as" => 'admin']);
