@@ -39,7 +39,7 @@
     {!! Form::label('imagen', 'Imagen:') !!}
     <div>
     @isset ($producto->imagen)   
-        <img src="{{asset($producto->imagen)}}" width="200">    
+        <img src="{{url('/imgs/'.$producto->imagen)}}" width="200">    
     @endisset   
     {!! Form::file('imagen', ['class' => 'form-control-file mt-1','accept' => 'image/*']) !!}
     </div>    

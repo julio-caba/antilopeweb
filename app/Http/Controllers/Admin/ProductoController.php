@@ -59,24 +59,7 @@ class ProductoController extends AppBaseController
      */
     public function store(CreateProductoRequest $request)
     {
-        $input = $request->all();
-
-        /* $producto = $this->productoRepository->create($input); */
-        /* if (!is_null($request->file('imagen'))) {
-            $archivo=$request->file('imagen');
-            $filename = explode(".", $archivo->getClientOriginalName());
-                $fileExtension = $filename[count($filename)-1];
-            $nombre_archivo = md5($producto->id.$archivo->getClientOriginalName()).'.'.$fileExtension;
-            $archivo->storeAs(
-                '/upload/productos/',
-                $nombre_archivo,
-                'public'
-            );
-            //Guardo el nuevo url en la BD
-            DB::table('productos')->where('id', $producto->id)->update([
-                'imagen' => 'storage/upload/productos/'.$nombre_archivo            
-            ]);
-        } */
+        $input = $request->all();      
        
         $producto = new Producto();
         $imagenes = $request->file('imagen');
@@ -97,7 +80,7 @@ class ProductoController extends AppBaseController
 
         Flash::success('Producto saved successfully.');
 
-        return redirect(route('admin.productos.index'));
+        return redirect(route('admin.productos.index', compact('producto')));
     }
 
     /**
@@ -128,6 +111,9 @@ class ProductoController extends AppBaseController
     public function edit($id)
     {
         $producto = $this->productoRepository->find($id);
+   /*      $producto = new Producto(); */
+        $producto = $producto::findOrFail($id);
+ 
         $categorias = DB::table('categorias')->orderBy('name')->pluck('name','id');
         if (empty($producto)) {
             Flash::error('Producto not found');
@@ -149,7 +135,7 @@ class ProductoController extends AppBaseController
     public function update($id, UpdateProductoRequest $request)
     {
         $producto = $this->productoRepository->find($id);
-
+       /*  $producto = new Producto(); */
         if (empty($producto)) {
             Flash::error('Producto not found');
 
@@ -157,21 +143,19 @@ class ProductoController extends AppBaseController
         }
 
         $producto = $this->productoRepository->update($request->all(), $id);
-        /* if (!is_null($request->file('imagen'))) {
-            $archivo=$request->file('imagen');
-            $filename = explode(".", $archivo->getClientOriginalName());
-                $fileExtension = $filename[count($filename)-1];
-            $nombre_archivo = md5($producto->id.$archivo->getClientOriginalName()).'.'.$fileExtension;
-            $archivo->storeAs(
-                '/upload/productos/',
-                $nombre_archivo,
-                'public'
-            );
-            //Guardo el nuevo url en la BD
-            DB::table('productos')->where('id', $producto->id)->update([
-                'imagen' => 'storage/upload/productos/'.$nombre_archivo            
-            ]);
-        } */
+       
+     
+        if ($request->hasFile('imagen')){
+            $imagenes = $request->file('imagen');
+            /* $nombreFoto=time().$archivoFoto->getClientOriginalName();  */
+            $nombre = time().'.'.$imagenes->getClientOriginalExtension();
+            /* $destino->move(public_path().'/imgs/', $nombre); */
+            $destino = public_path('imgs');
+            $request ->imagen->move($destino,$nombre);
+  
+            $producto->imagen = $nombre; 
+
+          }
         Flash::success('Producto updated successfully.');
 
         return redirect(route('admin.productos.index'));
