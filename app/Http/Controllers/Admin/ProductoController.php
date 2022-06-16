@@ -46,6 +46,7 @@ class ProductoController extends AppBaseController
     public function create()
     {
         $categorias = DB::table('categorias')->orderBy('name')->pluck('name','id');
+        
         return view('admin.productos.create', compact('categorias'));
     }
 
@@ -60,8 +61,8 @@ class ProductoController extends AppBaseController
     {
         $input = $request->all();
 
-        $producto = $this->productoRepository->create($input);
-        if (!is_null($request->file('imagen'))) {
+        /* $producto = $this->productoRepository->create($input); */
+        /* if (!is_null($request->file('imagen'))) {
             $archivo=$request->file('imagen');
             $filename = explode(".", $archivo->getClientOriginalName());
                 $fileExtension = $filename[count($filename)-1];
@@ -75,7 +76,25 @@ class ProductoController extends AppBaseController
             DB::table('productos')->where('id', $producto->id)->update([
                 'imagen' => 'storage/upload/productos/'.$nombre_archivo            
             ]);
-        }
+        } */
+       
+        $producto = new Producto();
+        $imagenes = $request->file('imagen');
+        $nombre = time().'.'.$imagenes->getClientOriginalExtension();
+        $destino = public_path('imgs');
+        $request ->imagen->move($destino,$nombre);
+
+        $producto::create([
+	        "name" => $request->name,
+            "descripcion" => $request->descripcion,
+            "codigo" => $request->codigo,
+            "costo" => $request->costo,
+            "precio" => $request->precio,
+	        "imagen" => $nombre,
+            "id_categoria" => $request->id_categoria,
+            "stock" => $request->stock,
+        ]);
+
         Flash::success('Producto saved successfully.');
 
         return redirect(route('admin.productos.index'));
@@ -94,10 +113,8 @@ class ProductoController extends AppBaseController
 
         if (empty($producto)) {
             Flash::error('Producto not found');
-
             return redirect(route('admin.productos.index'));
         }
-
         return view('admin.productos.show')->with('producto', $producto);
     }
 
@@ -140,7 +157,7 @@ class ProductoController extends AppBaseController
         }
 
         $producto = $this->productoRepository->update($request->all(), $id);
-        if (!is_null($request->file('imagen'))) {
+        /* if (!is_null($request->file('imagen'))) {
             $archivo=$request->file('imagen');
             $filename = explode(".", $archivo->getClientOriginalName());
                 $fileExtension = $filename[count($filename)-1];
@@ -154,7 +171,7 @@ class ProductoController extends AppBaseController
             DB::table('productos')->where('id', $producto->id)->update([
                 'imagen' => 'storage/upload/productos/'.$nombre_archivo            
             ]);
-        }
+        } */
         Flash::success('Producto updated successfully.');
 
         return redirect(route('admin.productos.index'));

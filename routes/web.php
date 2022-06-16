@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [App\Http\Controllers\Admin\CategoriaController::class, 'welcomeIndex']);
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::resource('productos', App\Http\Controllers\Admin\ProductoController::class, ["as" => 'admin']);
+    Route::resource('productos', App\Http\Controllers\Admin\ProductoController::class, ["as" => 'admin']);    
 });
 
 

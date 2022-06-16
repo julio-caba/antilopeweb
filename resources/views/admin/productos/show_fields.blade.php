@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="col-sm-12">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Nombre:') !!}
     <p>{{ $producto->name }}</p>
 </div>
 
@@ -12,37 +12,26 @@
 
 <!-- Costo Field -->
 <div class="col-sm-12">
-    {!! Form::label('costo', 'Costo:') !!}
-    <p>{{ $producto->costo }}</p>
+    {!! Form::label('costo', 'Costo de compra:') !!}
+    <p>${{ $producto->costo }}</p>
 </div>
 
 <!-- Precio Field -->
 <div class="col-sm-12">
-    {!! Form::label('precio', 'Precio:') !!}
-    <p>{{ $producto->precio }}</p>
+    {!! Form::label('precio', 'Precio de venta:') !!}
+    <p>${{ $producto->precio }}</p>
 </div>
 
 <!-- Cat Producto Field -->
 <div class="col-sm-12">
-    {!! Form::label('cat_producto', 'Cat Producto:') !!}
-    <p>{{ $producto->cat_producto }}</p>
+    {!! Form::label('cat_producto', 'ID de categoria:') !!}
+    <p>{{ $producto->id_categoria }}</p>
 </div>
 
 <!-- Stock Field -->
 <div class="col-sm-12">
     {!! Form::label('stock', 'Stock:') !!}
-    <p>{{ $producto->stock }}</p>
+    <p>{{ $producto->stock }} unidades</p>
 </div>
 
-<!-- Created At Field -->
-<div class="col-sm-12">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{{ $producto->created_at }}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="col-sm-12">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{{ $producto->updated_at }}</p>
-</div>
 
