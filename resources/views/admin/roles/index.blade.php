@@ -8,9 +8,9 @@
                     <h1>Roles</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
+                    <a class="btn btn-outline-primary float-right"
                        href="{{ route('admin.roles.create') }}">
-                        Add New
+                        Agregar
                     </a>
                 </div>
             </div>

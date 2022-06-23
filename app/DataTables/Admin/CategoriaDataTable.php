@@ -57,7 +57,7 @@ class CategoriaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' => new \Yajra\DataTables\Html\Column(['title' => 'ID', 'data' => 'id', 'name' => 'id']),
+           /*  'id' => new \Yajra\DataTables\Html\Column(['title' => 'ID', 'data' => 'id', 'name' => 'id']), */
             'name' => new \Yajra\DataTables\Html\Column(['title' => 'Nombre', 'data' => 'name', 'name' => 'name']),
             'descripcion' => new \Yajra\DataTables\Html\Column(['title' => 'Descripcion', 'data' => 'descripcion', 'name' => 'descripcion'])
 

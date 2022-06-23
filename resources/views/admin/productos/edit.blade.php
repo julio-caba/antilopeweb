@@ -26,8 +26,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('admin.productos.index') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-outline-primary']) !!}
+                <a href="{{ route('admin.productos.index') }}" class="btn btn-outline-dark">Cancelar</a>
             </div>
 
             {!! Form::close() !!}

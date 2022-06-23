@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Categoria Details</h1>
+                    <h1>Detalles de la Categoria</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
+                    <a class="btn  btn-outline-dark float-right"
                        href="{{ route('admin.categorias.index') }}">
-                        Back
+                        Volver
                     </a>
                 </div>
             </div>
