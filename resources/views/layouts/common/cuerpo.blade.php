@@ -208,25 +208,25 @@
         <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
-                <h5><a href="#">Instagram</a></h5>
+                <h5><a href="https://www.instagram.com/" target="_blank">Instagram</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
             <div class="inside-text">
                 <i class="ti-facebook"></i>
-                <h5><a href="#">Facebook</a></h5>
+                <h5><a href="https://es-la.facebook.com/" target="_blank">Facebook</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
             <div class="inside-text">
                 <i class="ti-twitter"></i>
-                <h5><a href="#">Twitter</a></h5>
+                <h5><a href="https://twitter.com/?lang=es" target="_blank">Twitter</a></h5>
             </div>
         </div>
         <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
             <div class="inside-text">
                 <i class="ti-youtube"></i>
-                <h5><a href="#">Youtube</a></h5>                
+                <h5><a href="https://www.youtube.com/" target="_blank">Youtube</a></h5>                
             </div>
         </div>
     </div>
