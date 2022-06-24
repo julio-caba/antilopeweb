@@ -8,10 +8,10 @@
                     <h1>Categorias</h1>
                 </div>
                 <div class="col-sm-6">
-                   <!--  <a class="btn btn-primary float-right"
+                    <a class="btn btn-outline-primary float-right"
                        href="{{ route('admin.categorias.create') }}">
-                        Add New
-                    </a> -->
+                        Agregar
+                    </a>
                 </div>
             </div>
         </div>

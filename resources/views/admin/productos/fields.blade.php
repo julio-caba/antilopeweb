@@ -25,7 +25,7 @@
 </div>
 <!-- id Categoria Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_categoria', 'ID de categoria:') !!}
+    {!! Form::label('id_categoria', 'Categoria:') !!}
     {!! Form::select('id_categoria',$categorias, null,  ['class' => 'form-control select2','data-placeholder'=>'Seleccionar...', 'data-allow-clear'=>'true']) !!}            
   <!--   {!! Form::number('id_categoria', null, ['class' => 'form-control','step'=>'any']) !!} -->
 </div>
