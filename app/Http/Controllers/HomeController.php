@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Admin\Categoria;
 
 use Illuminate\Http\Request;
 

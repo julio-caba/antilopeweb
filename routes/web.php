@@ -18,9 +18,6 @@ App::setLocale('es');
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/ayuda', function () {
-    return view('admin/ayuda/ayuda');
-});
 
 Auth::routes();
 
@@ -40,6 +37,21 @@ Route::get('/', [App\Http\Controllers\Admin\CategoriaController::class, 'welcome
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('productos', App\Http\Controllers\Admin\ProductoController::class, ["as" => 'admin']);    
 });
+
+//Ayuda
+Route::get('/contacto', [App\Http\Controllers\AyudaController::class, 'index']);
+Route::post('contacto/enviar_mail', [App\Http\Controllers\AyudaController::class, 'enviar_mail']);
+Route::get('/enviado', [App\Http\Controllers\admin\AyudaController::class, 'mensaje_enviado']);
+
+//Menu
+Route::get('/categoria/{id}', [App\Http\Controllers\admin\CategoriaController::class, 'ver_productos']);
+Route::get('/mas_vendidos', [App\Http\Controllers\admin\ProductoController::class, 'ver_mas_vendidos']);
+Route::get('/al_azar', [App\Http\Controllers\admin\ProductoController::class, 'al_azar']);
+Route::get('/ofertas', [App\Http\Controllers\admin\ProductoController::class, 'oferta']);
+
+//Productos
+Route::get('/producto/{id}', [App\Http\Controllers\admin\ProductoController::class, 'ver_individual']);
+
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\CreateroleRequest;
 use App\Http\Requests\Admin\UpdateroleRequest;
 use App\Repositories\Admin\roleRepository;
 use Flash;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AppBaseController;
 use Response;
 
@@ -28,9 +29,10 @@ class roleController extends AppBaseController
      *
      * @return Response
      */
-    public function index(roleDataTable $roleDataTable)
+    public function index(roleRepository $roleDataTable)
     {
-        return $roleDataTable->render('admin.roles.index');
+        $roles = DB::table('roles')->select('id','name')->get();
+        return $roleDataTable->render('admin.roles.index', compact('roles'));
     }
 
     /**

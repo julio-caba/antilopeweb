@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\CategoriaDataTable;
 use App\Http\Requests\Admin;
+use App\Models\Admin\Producto;
+use App\Models\Admin\Categoria;
 use App\Http\Requests\Admin\CreateCategoriaRequest;
 use App\Http\Requests\Admin\UpdateCategoriaRequest;
 use App\Repositories\Admin\CategoriaRepository;
@@ -83,6 +85,14 @@ class CategoriaController extends AppBaseController
         return view('admin.categorias.show', compact('categorias', 'categoria'));
     }
 
+    public function ver_productos($id)
+    {
+        $categorias = Categoria::all();
+        $titulo = Categoria::find($id);
+        $productos = Producto::where('id_categoria', '=', $id)->get();
+        return view('productos', compact(['productos', $productos], ['categorias', $categorias], ['titulo', $titulo]));
+    }
+
     /**
      * Show the form for editing the specified Categoria.
      *
@@ -137,7 +147,12 @@ class CategoriaController extends AppBaseController
      */
     public function welcomeIndex(){
         $categorias = $this->categoriaRepository->all();
-        return view('welcome', compact('categorias'));
+        $productos = Producto::all();
+        $ofertas = Producto::where('oferta', '=', 1)->get();
+        $mas_vendidos = Producto::where('oferta', '=', 1)->get();
+        $descubri = Producto::where('oferta', '=', 1)->get();
+
+        return view('welcome', compact('categorias', 'productos', 'ofertas', 'mas_vendidos', 'descubri'));
       /*   return view('welcome', ['categorias' => $categorias]); */
     }
     public function destroy($id)

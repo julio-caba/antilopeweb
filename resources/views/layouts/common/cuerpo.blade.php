@@ -38,8 +38,9 @@
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
-    <div class="banner-section spad">
+    <div class="banner-section spad" id="categorias">
         <div class="container-fluid">
+            <h2 class="h1" style="color: #ffa420;">Categorias</h2>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="single-banner">
@@ -77,22 +78,58 @@
         </div>
     </div>
     <!-- Banner Section End -->
+        <!-- Banner Section Begin -->
+    <div class="banner-section spad" id="mas_vendidos">
+        <div class="container-fluid">
+            <h2 class="h1" style="color: #ffa420;">Mas vendido</h2>
+            <div class="row">
+                @foreach($mas_vendidos as $producto)
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                        <div class="sale">Sale</div>
+                        <div class="icon">
+                            <i class="icon_heart_alt"></i>
+                        </div>
+                        <ul>
+                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                            <li class="quick-view"><a href="#">Vista Rapida</a></li>
+                        </ul>
+                    </div>
+                    <div class="pi-text">
+                        <div class="catagory-name">{{$producto->categoria->name}}</div>
+                        <a href="#">
+                            <h5>{{$producto->name}}</h5>
+                        </a>
+                        <div class="product-price">
+                            ${{$producto->precio_oferta}}
+                            <span>${{$producto->precio}}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Banner Section End -->
 
     <!-- Women Banner Section Begin -->
-    <section class="women-banner spad">
+    <section class="women-banner spad" id="descubri">
         <div class="container-fluid">
+        <h2 class="h1" style="color: #ffa420;">Descubrí</h2>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
-                        <h2>SETUPs Gamer</h2>
+                        <h2>Dejate sorprender por nosotros</h2>
                         <a href="#">Descubri mas</a>
                     </div>
                 </div>
                 <div class="col-lg-8 offset-lg-1">
                     <div class="product-slider owl-carousel">
+                    @foreach($descubri as $producto)
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="img/products/prod-1.jpg" alt="">
+                                <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
                                 <div class="sale">Sale</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
@@ -100,86 +137,20 @@
                                 <ul>
                                     <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
                                     <li class="quick-view"><a href="#">Vista Rapida</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Accesorios</div>
+                                <div class="catagory-name">{{$producto->categoria->name}}</div>
                                 <a href="#">
-                                    <h5>TECLADO HAVIT KB500L</h5>
+                                    <h5>{{$producto->name}}</h5>
                                 </a>
                                 <div class="product-price">
-                                    $2245.00
-                                    <span>$3000.00</span>
+                                    ${{$producto->precio_oferta}}
+                                    <span>${{$producto->precio}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/prod-2.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">Vista Rapida</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">NOTEBOOK</div>
-                                <a href="#">
-                                    <h5> HP 15-EH0009LA AMD R7</h5>
-                                </a>
-                                <div class="product-price">
-                                    $149999.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/prod-3.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">Vista Rapida</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">TABLET </div>
-                                <a href="#">
-                                    <h5>LENOVO TB-J606F 11' 64 GB GRIS</h5>
-                                </a>
-                                <div class="product-price">
-                                    $42999.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/prod-4.png" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">Vista Rapida</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">IMPRESORA</div>
-                                <a href="#">
-                                    <h5>CANON G3110 INYECCION TINTA </h5>
-                                </a>
-                                <div class="product-price">
-                                    $50999.00
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -187,12 +158,44 @@
     </section>
     <!-- Women Banner Section End -->
 
-   
-
+    <!-- Banner Section Begin -->
+    <div class="banner-section spad" id="ofertas">
+        <div class="container-fluid">
+            <h2 class="h1" style="color: #ffa420;">¡Ofertas!</h2>
+            <div class="row">
+                @foreach($ofertas as $producto)
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                        <div class="sale">Sale</div>
+                        <div class="icon">
+                            <i class="icon_heart_alt"></i>
+                        </div>
+                        <ul>
+                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                            <li class="quick-view"><a href="#">Vista Rapida</a></li>
+                        </ul>
+                    </div>
+                    <div class="pi-text">
+                        <div class="catagory-name">{{$producto->categoria->name}}</div>
+                        <a href="#">
+                            <h5>{{$producto->name}}</h5>
+                        </a>
+                        <div class="product-price">
+                            ${{$producto->precio_oferta}}
+                            <span>${{$producto->precio}}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Banner Section End -->
 
     <!-- Instagram Section Begin -->
     <div class="instagram-photo">
-        <h2 class="pb-2">Comunicate con nosotros</h2>
+        <h2 class="h1" style="color: #ffa420;">Comunicate con nosotros</h2>
         <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
             <div class="inside-text">
                 <i class="fa fa-whatsapp"></i>

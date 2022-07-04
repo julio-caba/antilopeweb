@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::model($producto, ['route' => ['admin.productos.update', $producto->id], 'method' => 'patch']) !!}
+            {!! Form::model($producto, ['route' => ['admin.productos.update', $producto->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
             <div class="card-body">
                 <div class="row">

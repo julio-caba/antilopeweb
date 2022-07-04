@@ -11,7 +11,7 @@
                         </div>                                                   
                         
                         <div class="payment-pic">
-                            <img src="img/payment-method.png" alt="">
+                            <img src="../img/payment-method.png" alt="">
                         </div>
                     </div>
                 </div>

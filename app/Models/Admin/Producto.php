@@ -74,5 +74,10 @@ class Producto extends Model
         'stock' => 'required'
     ];
 
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'id_categoria');
+    }
+
     
 }

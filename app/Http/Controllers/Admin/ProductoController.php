@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\ProductoDataTable;
 use App\Http\Requests\Admin;
+use App\Models\Admin\Producto;
+use App\Models\Admin\Categoria;
 use App\Http\Requests\Admin\CreateProductoRequest;
 use App\Http\Requests\Admin\UpdateProductoRequest;
 use App\Repositories\Admin\ProductoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;
-use App\Models\Admin\Producto;
 use Response;
+use Illuminate\Support\Str;
 
 class ProductoController extends AppBaseController
 {
@@ -101,6 +103,33 @@ class ProductoController extends AppBaseController
         return view('admin.productos.show')->with('producto', $producto);
     }
 
+    public function ver_mas_vendidos()
+    {
+        $categorias = Categoria::all();
+
+        //Aca los mas vendidos deberan ser
+        $productos = Producto::all();
+        return view('productos', compact(['productos', $productos], ['categorias', $categorias]));
+    }
+
+    public function al_azar()
+    {
+        $categorias = Categoria::all();
+
+        //Aca los mas vendidos deberan ser
+        $productos = Producto::all();
+        return view('productos', compact(['productos', $productos], ['categorias', $categorias]));
+    }
+
+    public function oferta()
+    {
+        $categorias = Categoria::all();
+
+        //Aca los mas vendidos deberan ser
+        $productos = Producto::where('oferta', '=', 1)->get();
+        return view('productos', compact(['productos', $productos], ['categorias', $categorias]));
+    }
+
     /**
      * Show the form for editing the specified Producto.
      *
@@ -143,21 +172,19 @@ class ProductoController extends AppBaseController
         }
 
         $producto = $this->productoRepository->update($request->all(), $id);
-       
-     
+        $prod = Producto::find($id);
+        $nombre = '';
         if ($request->hasFile('imagen')){
             $imagenes = $request->file('imagen');
             /* $nombreFoto=time().$archivoFoto->getClientOriginalName();  */
             $nombre = time().'.'.$imagenes->getClientOriginalExtension();
             /* $destino->move(public_path().'/imgs/', $nombre); */
             $destino = public_path('imgs');
-            $request ->imagen->move($destino,$nombre);
-  
-            $producto->imagen = $nombre; 
-
-          }
+            $request->imagen->move($destino,$nombre);
+        }
         Flash::success('Producto updated successfully.');
-
+        $prod->imagen = $nombre; 
+        $prod->save();
         return redirect(route('admin.productos.index'));
     }
 
@@ -183,5 +210,12 @@ class ProductoController extends AppBaseController
         Flash::success('Producto deleted successfully.');
 
         return redirect(route('admin.productos.index'));
+    }
+
+    public function ver_individual($id)
+    {
+        $categorias = Categoria::all();
+        $producto = Producto::find($id);
+        return view('ver_producto', compact(['producto', $producto], ['categorias', $categorias]));
     }
 }

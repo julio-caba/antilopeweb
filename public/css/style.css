@@ -796,7 +796,7 @@ ol {
 .nav-item .nav-menu li:hover .dropdown {
 	opacity: 1;
 	visibility: visible;
-	top: 52px;
+	top: 30px;
 }
 
 .nav-item .nav-menu li .dropdown {
@@ -1174,7 +1174,7 @@ ol {
 }
 
 .product-item {
-	margin-bottom: 26px;
+	margin: 26px;
 }
 
 .product-item:hover .pi-pic .icon {

@@ -16,6 +16,12 @@
     
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
+
+	$(document).ready(function(){
+		$("#mostrar").on( "click", function() {
+			$('#mensajeoculto').show(); //muestro mediante id
+		 });
+	});
     
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {

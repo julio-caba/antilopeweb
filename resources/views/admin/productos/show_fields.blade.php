@@ -32,3 +32,10 @@
     {!! Form::label('stock', 'Stock:') !!}
     <p>{{ $producto->stock }} unidades</p>
 </div>
+
+<!-- Stock Field -->
+<div class="col-sm-4">
+    {!! Form::label('imagen', 'Imagen:') !!}
+    <br>
+    <img width="300" src="{{ asset('imgs'.$producto->imagen) }}">
+</div>

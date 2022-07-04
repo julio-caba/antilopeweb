@@ -20,8 +20,8 @@
     </a>
  </li>
  @endif
- <li class="nav-item mt-1 {{ Request::is('admin/usuarios*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('admin.usuarios.index') }}">
+ <li class="nav-item mt-1 {{ Request::is('admin/roles*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('admin.roles.index') }}">
         <i class="fas fa-id-card-alt" style="text-align: center; margin-right: .4em; margin-left: .2em;"></i><p  align="right">Usuarios</p>
     </a>
  </li>

@@ -1,7 +1,7 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre de categoria:') !!}
-    {!! Form::select('name', ['1' => 'Notebooks', '2'=> 'Accesorios', '3'=> 'Impresoras', '4'=>'Otros'], null, ['class' => 'form-control']) !!}
+    {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
