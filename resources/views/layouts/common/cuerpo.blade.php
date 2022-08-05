@@ -86,7 +86,7 @@
                 @foreach($mas_vendidos as $producto)
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                        <img src="{{ asset('imgs/' .$producto->imagen) }}" width="250" height="200" alt="">
                         <div class="sale">Sale</div>
                         <div class="icon">
                             <i class="icon_heart_alt"></i>
@@ -129,7 +129,7 @@
                     @foreach($descubri as $producto)
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                                <img width="250" height="200" src="{{ asset('imgs/'.$producto->imagen) }}" alt="">
                                 <div class="sale">Sale</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
@@ -166,7 +166,7 @@
                 @foreach($ofertas as $producto)
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                        <img width="250" height="200" src="{{ asset('imgs/'.$producto->imagen) }}" alt="">
                         <div class="sale">Sale</div>
                         <div class="icon">
                             <i class="icon_heart_alt"></i>

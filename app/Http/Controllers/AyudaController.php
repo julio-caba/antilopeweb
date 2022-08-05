@@ -40,7 +40,7 @@ class AyudaController extends Controller
     
     public function mensaje_enviado()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::all();        
         $mensaje = "¡Gracias por contactar con nosotros! Nos pondremos en contacto a la brevedad.";
         return view('generico')->with(['mensaje' => $mensaje, "categorias" => $categorias]);
     }

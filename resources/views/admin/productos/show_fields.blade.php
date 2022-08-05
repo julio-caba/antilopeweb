@@ -37,5 +37,5 @@
 <div class="col-sm-4">
     {!! Form::label('imagen', 'Imagen:') !!}
     <br>
-    <img width="300" src="{{ asset('imgs'.$producto->imagen) }}">
+    <img width="300" src="{{ asset('imgs/'.$producto->imagen) }}">
 </div>

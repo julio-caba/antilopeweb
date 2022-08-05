@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
 //Ayuda
 Route::get('/contacto', [App\Http\Controllers\AyudaController::class, 'index']);
 Route::post('contacto/enviar_mail', [App\Http\Controllers\AyudaController::class, 'enviar_mail']);
-Route::get('/enviado', [App\Http\Controllers\admin\AyudaController::class, 'mensaje_enviado']);
+Route::get('/enviado', [App\Http\Controllers\AyudaController::class, 'mensaje_enviado']);
 
 //Menu
 Route::get('/categoria/{id}', [App\Http\Controllers\admin\CategoriaController::class, 'ver_productos']);

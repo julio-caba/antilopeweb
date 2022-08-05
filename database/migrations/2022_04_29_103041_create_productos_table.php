@@ -22,6 +22,7 @@ class CreateProductosTable extends Migration
             $table->double('costo');
             $table->double('precio');            
             $table->string('imagen');
+            $table->boolean('oferta')->nullable();
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->integer('stock');

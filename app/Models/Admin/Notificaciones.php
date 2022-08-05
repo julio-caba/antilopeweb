@@ -28,7 +28,8 @@ class Notificaciones extends Model
 
     public $fillable = [
         'name',
-        'descripcion'
+        'descripcion',
+        'mensaje'
     ];
 
     /**

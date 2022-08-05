@@ -40,6 +40,7 @@ class Producto extends Model
         'costo',
         'precio',
         'imagen',
+        'oferta',
         'id_categoria',
         'stock'
     ];
@@ -56,6 +57,7 @@ class Producto extends Model
         'costo' => 'integer',
         'precio' => 'integer',
         'imagen' => 'string',
+        'oferta' => 'boolean',
         'id_categoria' => 'integer',
         'stock' => 'integer'
     ];

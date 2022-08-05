@@ -12,7 +12,7 @@
                 @foreach($productos as $producto)
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img width="250" height="200" src="{{ asset('imgs'.$producto->imagen) }}" alt="">
+                        <img width="250" height="200" src="{{ asset('imgs/'.$producto->imagen) }}" alt="">
                         @if($producto->oferta)
                         <div class="sale">Sale</div>
                         @endif

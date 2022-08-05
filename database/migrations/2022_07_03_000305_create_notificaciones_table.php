@@ -17,7 +17,7 @@ class CreateNotificacionesTable extends Migration
             $table->id('id');
             $table->string('nombre');
             $table->string('email');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->string('mensaje');
             $table->timestamps();
         });
